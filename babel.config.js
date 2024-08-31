@@ -10,6 +10,10 @@ module.exports = function (api) {
           config: './tamagui.config.ts',
           logTimings: true,
           disableExtraction: process.env.NODE_ENV === 'development',
+          baseUrl: './',
+          alias: {
+            '@components': 'src/components/index',
+          },
         },
       ],
 
