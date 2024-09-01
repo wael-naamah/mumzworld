@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProducts } from '../network';
-import { ProductListResponse } from '@/src/types/apiTypes';
+import { fetchProduct } from '../network';
+import { ProductResponse } from '@/src/types/apiTypes';
 
 interface initialState {
-  data: ProductListResponse | null;
+  data: ProductResponse | null;
   status: string;
   error: string | null;
 }
@@ -15,19 +15,19 @@ const initialState: initialState = {
 };
 
 const productsSlice = createSlice({
-  name: 'products',
+  name: 'productDetails',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state) => {
+      .addCase(fetchProduct.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchProduct.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.data = action.payload;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchProduct.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message || 'Something went wrong';
       });

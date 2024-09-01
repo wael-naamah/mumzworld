@@ -29,24 +29,48 @@ export interface PriceRange {
 }
 
 export interface CategoryTree {
+  breadcrumbs?: Breadcrumb[] | null;
+  level?: number;
+  id?: number;
   name: string;
+  url_path?: string;
+  url_key?: string;
 }
 
 export interface ProductImage {
+  disabled?: boolean;
+  label?: string | null;
+  position?: number;
   url: string;
 }
 
 export interface BrandInfo {
+  img_src?: string;
   title: string;
+  url?: string;
 }
 
 export interface Product {
+  language: string;
+  redirect_code: number;
+  relative_url: string;
+  type: string;
+  amrma_default_resolution_period: number;
   brand: number;
   brand_info: BrandInfo;
   categories: CategoryTree[];
+  cautions: string;
+  cross_border_product: CrossBorderProduct;
+  description: ComplexTextValue;
+  dimensions: string;
+  features: string;
   id: number;
   is_yalla: string[];
   low_stock_qty: number | null;
+  media_gallery: ProductImage[];
+  media_gallery_entries: MediaGalleryEntry[];
+  meta_description: string;
+  meta_title: string;
   name: string;
   price: {
     regularPrice: {
@@ -64,6 +88,7 @@ export interface Product {
   uid: string;
   url_key: string;
   url_suffix: string;
+  weight: number;
 }
 
 export interface ProductListResponse {
@@ -76,5 +101,45 @@ export interface ProductListResponse {
       total_count: number;
       yalla_total_count: number;
     };
+  };
+}
+
+export interface Breadcrumb {
+  category_id: number;
+  category_name: string;
+  category_url_key: string;
+  category_url_path: string;
+}
+
+export interface CrossBorderProduct {
+  is_allowed: boolean;
+  disallow_countries: string;
+}
+
+export interface ComplexTextValue {
+  html: string;
+}
+
+export interface MediaGalleryEntry {
+  disabled: boolean;
+  file: string;
+  id: number;
+  label: string | null;
+  position: number;
+  uid: string;
+}
+export interface SearchResultPageInfo {
+  page_size: number;
+  total_pages: number;
+}
+
+export interface ProductReviews {
+  items: any[];
+  page_info: SearchResultPageInfo;
+}
+
+export interface ProductResponse {
+  data: {
+    product: Product[];
   };
 }

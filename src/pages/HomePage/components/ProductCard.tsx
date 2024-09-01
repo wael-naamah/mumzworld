@@ -6,12 +6,15 @@ import { Product } from '../../../types/apiTypes';
 import tokens from '@/theme/tokens';
 import { Text } from '@components';
 import { Platform } from 'react-native';
+import { useRouter } from 'expo-router';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const router = useRouter();
+
   const discount = product.price_range?.minimum_price?.discount;
   const hasDiscount = discount && discount.amount_off > 0;
   const isYalla = product.is_yalla.includes('AE'); // TODO: get country code from context
@@ -28,6 +31,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       shadowOpacity={0.1}
       shadowRadius={8}
       p={8}
+      onPress={() => {
+        router.push({
+          pathname: '/home/product/[id]',
+          params: { id: product.id },
+        });
+      }}
     >
       <Image
         source={{ uri: product.small_image.url }}
