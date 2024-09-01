@@ -1,16 +1,10 @@
-import { View } from 'react-native';
 import { Text } from '@components';
+import { Stack } from 'tamagui';
 
 export default function WishlistPage() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <Stack flex={1} ai="center" jc="center">
       <Text>Wishlist screen</Text>
-    </View>
+    </Stack>
   );
 }
