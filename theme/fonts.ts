@@ -1,7 +1,6 @@
 import { createFont } from 'tamagui';
 
 const headingFont = createFont({
-  family: 'BebasNeue',
   size: {
     '4xl': 60,
     '3xl': 40,
@@ -33,19 +32,18 @@ const headingFont = createFont({
 });
 
 const bodyFont = createFont({
-  family: 'Montserrat',
   size: {
     lg: 22,
-    md: 18,
-    sm: 14,
-    xs: 12,
+    md: 14,
+    sm: 12,
+    xs: 10,
     base: 16,
   },
   lineHeight: {
     lg: 28,
-    md: 24,
-    sm: 20,
-    xs: 16,
+    md: 22,
+    sm: 18,
+    xs: 14,
     base: 22,
   },
   weight: {
@@ -60,12 +58,6 @@ const bodyFont = createFont({
     sm: 0,
     xs: 0.5,
     base: 0.5,
-  },
-  face: {
-    400: { normal: 'Montserrat-Regular' },
-    500: { normal: 'Montserrat-Medium' },
-    600: { normal: 'Montserrat-SemiBold' },
-    700: { normal: 'Montserrat-Bold' },
   },
 });
 

@@ -27,7 +27,6 @@ const Text: React.FC<CustomTextProps> = ({
 
   return (
     <RNText
-      fontFamily={fontConfig.family as any}
       fontSize={fontConfig.size[size as keyof typeof fontConfig.size]}
       lineHeight={fontConfig.lineHeight[size as keyof typeof fontConfig.size]}
       fontWeight={fontConfig.weight[weight as keyof typeof fontConfig.weight]}
