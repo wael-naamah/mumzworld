@@ -20,6 +20,8 @@ import { ErrorBoundary, Header } from '@components';
 import config from '../tamagui.config';
 import tokens from '@/theme/tokens';
 import { store } from '@store';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../src/locales/i18n';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -142,13 +144,15 @@ function App() {
 
 const AppWithErrorBoundary = () => {
   return (
-    <AnimatedAppLoader>
-      <ErrorBoundary catch={ExpoDefaultErrorScreen}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </ErrorBoundary>
-    </AnimatedAppLoader>
+    <I18nextProvider i18n={i18n}>
+      <AnimatedAppLoader>
+        <ErrorBoundary catch={ExpoDefaultErrorScreen}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </ErrorBoundary>
+      </AnimatedAppLoader>
+    </I18nextProvider>
   );
 };
 
