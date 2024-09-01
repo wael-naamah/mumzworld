@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Animated, StatusBar, useColorScheme, View } from 'react-native';
+import { Provider } from 'react-redux';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {
   ErrorBoundary as ExpoDefaultErrorScreen,
@@ -18,6 +19,7 @@ import splashImage from '@assets/images/splash.png';
 import { ErrorBoundary, Header } from '@components';
 import config from '../tamagui.config';
 import tokens from '@/theme/tokens';
+import { store } from '@store';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -142,7 +144,9 @@ const AppWithErrorBoundary = () => {
   return (
     <AnimatedAppLoader>
       <ErrorBoundary catch={ExpoDefaultErrorScreen}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </ErrorBoundary>
     </AnimatedAppLoader>
   );
