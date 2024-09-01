@@ -40,7 +40,6 @@ const TabsLayout = () => {
           key={name}
           name={name}
           options={{
-            // href: `/${name}`,
             title: label,
             tabBarItemStyle: {
               paddingTop: Platform.OS === 'android' ? 14 : 15,

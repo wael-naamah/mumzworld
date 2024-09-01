@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Animated, StatusBar, useColorScheme, View } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {
   ErrorBoundary as ExpoDefaultErrorScreen,
   Stack,
@@ -15,7 +15,7 @@ import {
   ThemeProvider,
 } from '@react-navigation/native';
 import splashImage from '@assets/images/splash.png';
-import { ErrorBoundary } from '@components';
+import { ErrorBoundary, Header } from '@components';
 import config from '../tamagui.config';
 import tokens from '@/theme/tokens';
 
@@ -118,11 +118,20 @@ function App() {
     <TamaguiProvider config={config} defaultTheme={defaultTamaguiTheme}>
       <ThemeProvider value={theme}>
         <SafeAreaProvider>
-          <StatusBar animated barStyle="dark-content" />
-          <Stack
-            initialRouteName={initialRouteName}
-            screenOptions={{ headerShown: false }}
-          />
+          <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
+            <StatusBar
+              animated
+              barStyle="dark-content"
+              backgroundColor={tokens.color.semanticBgWhite.val}
+            />
+            <View style={{ flex: 1 }}>
+              <Header />
+              <Stack
+                initialRouteName={initialRouteName}
+                screenOptions={{ headerShown: false }}
+              />
+            </View>
+          </SafeAreaView>
         </SafeAreaProvider>
       </ThemeProvider>
     </TamaguiProvider>
