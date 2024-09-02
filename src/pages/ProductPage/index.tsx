@@ -1,15 +1,12 @@
-import { Text } from '@components';
+import { Text, Carousel } from '@components';
 import React, { useEffect, useMemo } from 'react';
-import { Image, ScrollView, Dimensions } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 import { Product } from '../../types/apiTypes';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct } from '@/src/store/network';
 import { RootState } from '@/src/store/store';
 import { Spinner, YStack } from 'tamagui';
-import Carousel from 'react-native-reanimated-carousel';
 import { useTranslation } from 'react-i18next';
-export const DEVICE_WIDTH = Dimensions.get('window').width;
-export const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 interface ProductDetailsProps {
   productId?: string;
@@ -52,29 +49,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
 
   return (
     <ScrollView style={{ padding: 16 }}>
-      <YStack mt={0} h={DEVICE_HEIGHT / 3.8}>
-        <Carousel
-          loop={false}
-          data={media_gallery || []}
-          renderItem={({ item, index }) => {
-            return (
-              <YStack key={index} bc="white" h="100%" w={DEVICE_WIDTH - 20}>
-                <Image
-                  key={index}
-                  source={{ uri: item.url }}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    marginRight: 10,
-                    objectFit: 'contain',
-                  }}
-                />
-              </YStack>
-            );
-          }}
-          width={DEVICE_WIDTH}
-        />
-      </YStack>
+      <Carousel data={media_gallery} />
 
       <Text variant="heading" size="lg" weight="bold">
         {name}

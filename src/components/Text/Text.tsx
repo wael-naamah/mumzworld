@@ -4,12 +4,12 @@ import { bodyFont, headingFont } from '@/src/theme/fonts';
 import { Color, Size, Variant, Weight } from './types';
 
 interface CustomTextProps extends TextProps {
-    variant?: Variant;
-    size?: Size;
-    weight?: Weight;
-    color?: Color;
-    disabled?: boolean;
-  }
+  variant?: Variant;
+  size?: Size;
+  weight?: Weight;
+  color?: Color;
+  disabled?: boolean;
+}
 
 const Text: React.FC<CustomTextProps> = ({
   children,
