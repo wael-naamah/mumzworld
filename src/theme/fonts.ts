@@ -30,6 +30,7 @@ const headingFont = createFont({
     '2xl': -0.25,
     xl: 0,
     lg: 0,
+    4: 0,
   },
 });
 
@@ -62,6 +63,7 @@ const bodyFont = createFont({
     sm: 0,
     xs: 0.5,
     base: 0.5,
+    4: 0,
   },
 });
 
