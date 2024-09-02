@@ -7,6 +7,7 @@ const headingFont = createFont({
     '2xl': 34,
     xl: 24,
     lg: 20,
+    4: 18,
   },
   lineHeight: {
     '4xl': 72,
@@ -14,6 +15,7 @@ const headingFont = createFont({
     '2xl': 40,
     xl: 32,
     lg: 28,
+    4: 24,
   },
   weight: {
     '4xl': '700',
@@ -38,6 +40,7 @@ const bodyFont = createFont({
     sm: 12,
     xs: 10,
     base: 16,
+    4: 18,
   },
   lineHeight: {
     lg: 28,
@@ -45,6 +48,7 @@ const bodyFont = createFont({
     sm: 18,
     xs: 14,
     base: 22,
+    4: 24,
   },
   weight: {
     regular: '400',

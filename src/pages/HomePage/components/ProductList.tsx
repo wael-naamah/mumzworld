@@ -8,9 +8,11 @@ interface ProductListProps {
   products: Product[];
 }
 
+const MemoizedProductCard = React.memo(ProductCard);
+
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
   const renderItem: ListRenderItem<Product> = ({ item }) => (
-    <ProductCard product={item} />
+    <MemoizedProductCard product={item} />
   );
 
   return (

@@ -21,8 +21,14 @@ import config from '../tamagui.config';
 import tokens from '@/src/theme/tokens';
 import { store } from '@store';
 import { I18nextProvider } from 'react-i18next';
-import i18n, { getCurrentLanguage, setInitialLanguage } from '../src/locales/i18n';
-import {setCurrentLanguage} from '@/src/store/slices/localesSlice';
+import i18n, {
+  getCurrentLanguage,
+  setInitialLanguage,
+} from '../src/locales/i18n';
+import { setCurrentLanguage } from '@/src/store/slices/localesSlice';
+if (__DEV__) {
+  require('../reactotronConfig.js');
+}
 
 SplashScreen.preventAutoHideAsync();
 
