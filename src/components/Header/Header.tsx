@@ -2,7 +2,7 @@ import React from 'react';
 import { YStack, XStack, Button } from 'tamagui';
 import { Ionicons } from '@expo/vector-icons';
 import { Image } from 'react-native';
-import tokens from '@/theme/tokens';
+import tokens from '@/src/theme/tokens';
 import { toggleLanguage } from '@/src/locales/i18n';
 import { RootState } from '@/src/store/store';
 import { useSelector } from 'react-redux';

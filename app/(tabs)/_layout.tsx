@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import tokens from '@/theme/tokens';
+import tokens from '@/src/theme/tokens';
 import { Text } from '@components';
 
 export const getLabel = ({ focused, label }: any) => {

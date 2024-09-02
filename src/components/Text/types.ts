@@ -1,5 +1,5 @@
-import { bodyFont, headingFont } from "@/theme/fonts";
-import tokens from "@/theme/tokens";
+import { bodyFont, headingFont } from "@/src/theme/fonts";
+import tokens from "@/src/theme/tokens";
 
 export type Variant = 'heading' | 'body';
 export type Size = keyof typeof bodyFont.size | keyof typeof headingFont.size;

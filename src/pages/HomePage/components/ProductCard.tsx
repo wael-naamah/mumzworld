@@ -3,7 +3,7 @@ import { YStack, Image, XStack, Circle } from 'tamagui';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Ionicons } from '@expo/vector-icons';
 import { Product } from '../../../types/apiTypes';
-import tokens from '@/theme/tokens';
+import tokens from '@/src/theme/tokens';
 import { Text } from '@components';
 import { Platform } from 'react-native';
 import { useRouter } from 'expo-router';

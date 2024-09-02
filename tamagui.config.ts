@@ -1,8 +1,8 @@
 import { shorthands } from '@tamagui/shorthands';
 import { createTamagui } from 'tamagui';
-import { headingFont, bodyFont } from './theme/fonts';
-import tokens from './theme/tokens';
-import themes from './theme/themes';
+import { headingFont, bodyFont } from './src/theme/fonts';
+import tokens from './src/theme/tokens';
+import themes from './src/theme/themes';
 
 const config = createTamagui({
   defaultTheme: 'light',

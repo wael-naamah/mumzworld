@@ -1,6 +1,6 @@
 import { Text as RNText, TextProps } from 'tamagui';
-import tokens from '@/theme/tokens';
-import { bodyFont, headingFont } from '@/theme/fonts';
+import tokens from '@/src/theme/tokens';
+import { bodyFont, headingFont } from '@/src/theme/fonts';
 import { Color, Size, Variant, Weight } from './types';
 
 interface CustomTextProps extends TextProps {

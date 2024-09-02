@@ -18,7 +18,7 @@ import {
 import splashImage from '@assets/images/splash.png';
 import { ErrorBoundary, Header } from '@components';
 import config from '../tamagui.config';
-import tokens from '@/theme/tokens';
+import tokens from '@/src/theme/tokens';
 import { store } from '@store';
 import { I18nextProvider } from 'react-i18next';
 import i18n, { getCurrentLanguage, setInitialLanguage } from '../src/locales/i18n';
