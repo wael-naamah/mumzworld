@@ -14,6 +14,7 @@
 - [Getting Started](#-getting-started)
 - [Configuration](#configuration)
 - [Common Commands](#common-commands)
+- [Improvement Suggestions](#improvement-suggestions)
 - [Acknowledgements](#-acknowledgements)
 - [Demo](#-demo)
 
@@ -56,8 +57,8 @@ We're using yarn in our app
 ### Running Locally
 
 1. **Download the specific development build for your platform**:
-    [iOS Development Build](https://drive.google.com/file/d/15Psuqakyy8N3m2Y1LVZnkw2lDxEfyePa/view?usp=sharing)
-    [Android Development Build](https://drive.google.com/file/d/1dP2_oaHI92edrxfIB3p3cjOzMj8LUXFZ/view?usp=sharing)
+   - [iOS Development Build](https://drive.google.com/file/d/15Psuqakyy8N3m2Y1LVZnkw2lDxEfyePa/view?usp=sharing)
+   - [Android Development Build](https://drive.google.com/file/d/1dP2_oaHI92edrxfIB3p3cjOzMj8LUXFZ/view?usp=sharing)
 
 2. **Running on Simulators/Emulators**:
     - Install the previously downloaded build to your Simulator/Emulator.
@@ -76,6 +77,13 @@ We're using yarn in our app
     ```sh
     yarn start
     ```
+
+## 💡 Improvement Suggestions
+- **Implement Pagination**: Fetching all 800+ products at once can overload the API and cause latency issues.
+- **Use GraphQL**: use GraphQL to request only the data they need, reducing over-fetching issues.
+- **Implement Server-side Caching**: Caching frequently accessed data (like product list and product details APIs).
+- **Adding a Language Parameter**: (for Product details endpoint) If the data is fetched in the correct language directly from the server, it eliminates the need for additional client-side processing, which can improve 
+     performance.
 
 ## 🙌🏻 Acknowledgements
 
