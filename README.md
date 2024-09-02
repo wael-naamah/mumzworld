@@ -15,6 +15,7 @@
 - [Configuration](#configuration)
 - [Common Commands](#common-commands)
 - [Acknowledgements](#-acknowledgements)
+- [Demo](#-demo)
 
 
 ## ✨ Key Features:
