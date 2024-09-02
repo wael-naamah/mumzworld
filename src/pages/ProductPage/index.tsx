@@ -1,6 +1,6 @@
 import { Text } from '@components';
 import React, { useEffect, useMemo } from 'react';
-import { Image, ScrollView, Dimensions, Platform } from 'react-native';
+import { Image, ScrollView, Dimensions } from 'react-native';
 import { Product } from '../../types/apiTypes';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct } from '@/src/store/network';
@@ -16,11 +16,14 @@ interface ProductDetailsProps {
 }
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const dispatch = useDispatch();
   const productDetails = useSelector((state: RootState) => state.productSlice);
   const { data, status, error } = productDetails;
+  const currentLanguage = useSelector(
+    (state: RootState) => state.localesSlice.currentLang,
+  );
 
   useEffect(() => {
     if (productId) {
@@ -28,7 +31,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
     }
   }, [dispatch, productId]);
 
-  const isRtL = useMemo(() => i18n.language === 'ar', [i18n.language]);
+  const isRtL = useMemo(() => currentLanguage === 'ar', [currentLanguage]);
 
   if (status === 'loading') {
     return <Spinner />;
@@ -48,10 +51,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
     product;
 
   return (
-    <ScrollView
-      style={{ padding: 16, direction: isRtL ? 'rtl' : 'ltr' }}
-      contentContainerStyle={{ alignItems: 'flex-start', paddingStart: 10 }}
-    >
+    <ScrollView style={{ padding: 16 }}>
       <YStack mt={0} h={DEVICE_HEIGHT / 3.8}>
         <Carousel
           loop={false}
@@ -86,9 +86,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
           width: 50,
           height: 50,
           objectFit: 'contain',
-          ...(Platform.OS === 'android'
-            ? { alignSelf: isRtL ? 'flex-end' : 'flex-start' }
-            : {}),
         }}
       />
 
@@ -100,7 +97,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
       <Text mt={16} size="md" weight="bold">
         {t('features')}:
       </Text>
-      <Text>{features}</Text>
+      <Text size="md">{features}</Text>
 
       <Text mt={16} size="md" weight="bold">
         {t('dimensions')}:

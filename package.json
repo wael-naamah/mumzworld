@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
+    "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/native": "^6.0.2",
     "@reduxjs/toolkit": "^2.2.7",
     "@tamagui/config": "^1.110.0",
@@ -36,6 +37,7 @@
     "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
+    "expo-updates": "~0.25.24",
     "expo-web-browser": "~13.0.3",
     "i18next": "^23.14.0",
     "react": "18.2.0",

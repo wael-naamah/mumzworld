@@ -2,7 +2,6 @@ import { Text as RNText, TextProps } from 'tamagui';
 import tokens from '@/theme/tokens';
 import { bodyFont, headingFont } from '@/theme/fonts';
 import { Color, Size, Variant, Weight } from './types';
-import { I18nManager } from 'react-native';
 
 interface CustomTextProps extends TextProps {
     variant?: Variant;
@@ -21,7 +20,6 @@ const Text: React.FC<CustomTextProps> = ({
   disabled = false,
   ...props
 }) => {
-  const isRTL = I18nManager.isRTL;
   const fontConfig = variant === 'heading' ? headingFont : bodyFont;
   const textColor = disabled
     ? tokens.color.semanticFgTextDisabled
@@ -36,7 +34,6 @@ const Text: React.FC<CustomTextProps> = ({
       }
       color={textColor}
       opacity={disabled ? 0.5 : 1}
-      textAlign={isRTL? 'right' : 'left'}
       {...props}
     >
       {children}

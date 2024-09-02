@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { YStack, XStack, Button } from 'tamagui';
 import { Ionicons } from '@expo/vector-icons';
 import { Image } from 'react-native';
 import tokens from '@/theme/tokens';
-import { useTranslation } from 'react-i18next';
-import { switchLanguage } from '@/src/locales/i18n';
+import { toggleLanguage } from '@/src/locales/i18n';
+import { RootState } from '@/src/store/store';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
-
-  useEffect(() => {
-    setCurrentLanguage(i18n.language);
-  }, [i18n.language]);
-
-  const handleLanguageSwitch = () => {
-    const newLanguage = currentLanguage === 'en' ? 'ar' : 'en';
-    switchLanguage(newLanguage);
-    setCurrentLanguage(newLanguage);
-  };
+  const currentLanguage = useSelector((state: RootState) => state.localesSlice.currentLang);
 
   return (
     <XStack
@@ -53,8 +43,8 @@ const Header = () => {
 
       <XStack ai="center" jc="flex-end" gap={5}>
         {/* TODO: to be moved to settings page */}
-        <Button padding={0} onPress={handleLanguageSwitch}>
-          {currentLanguage === 'en' ? 'عربي' : 'English'}
+        <Button padding={0} onPress={toggleLanguage}>
+          { currentLanguage === 'en' ? 'عربي' : 'English'}
         </Button>
         <Button
           icon={() => (

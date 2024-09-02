@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Animated, StatusBar, useColorScheme, View } from 'react-native';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {
   ErrorBoundary as ExpoDefaultErrorScreen,
@@ -21,7 +21,8 @@ import config from '../tamagui.config';
 import tokens from '@/theme/tokens';
 import { store } from '@store';
 import { I18nextProvider } from 'react-i18next';
-import i18n from '../src/locales/i18n';
+import i18n, { getCurrentLanguage, setInitialLanguage } from '../src/locales/i18n';
+import {setCurrentLanguage} from '@/src/store/slices/localesSlice';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -117,6 +118,16 @@ function App() {
 
   const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
   const defaultTamaguiTheme = colorScheme === 'dark' ? 'dark' : 'light';
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const inintLanguage = async () => {
+      const lang = await getCurrentLanguage();
+      dispatch(setCurrentLanguage(lang));
+      setInitialLanguage();
+    };
+    inintLanguage();
+  }, []);
 
   return (
     <TamaguiProvider config={config} defaultTheme={defaultTamaguiTheme}>
