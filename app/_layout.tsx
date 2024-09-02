@@ -15,7 +15,7 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from '@react-navigation/native';
-import splashImage from '@assets/images/splash.png';
+import splashImage from '@/src/assets/images/splash.png';
 import { ErrorBoundary, Header } from '@components';
 import config from '../tamagui.config';
 import tokens from '@/src/theme/tokens';

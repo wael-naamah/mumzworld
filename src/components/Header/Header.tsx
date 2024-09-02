@@ -6,6 +6,7 @@ import tokens from '@/src/theme/tokens';
 import { toggleLanguage } from '@/src/locales/i18n';
 import { RootState } from '@/src/store/store';
 import { useSelector } from 'react-redux';
+import logo from '@/src/assets/images/logo.png';
 
 const Header = () => {
   const currentLanguage = useSelector((state: RootState) => state.localesSlice.currentLang);
@@ -35,7 +36,7 @@ const Header = () => {
 
       <YStack flex={1} alignItems="center">
         <Image
-          source={require('@/assets/images/logo.png')}
+          source={logo}
           style={{ width: 120, height: 40 }}
           resizeMode="contain"
         />
